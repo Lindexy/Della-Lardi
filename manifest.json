@@ -1,0 +1,26 @@
+{
+  "name": "Getting Started Example",
+  "description": "Build an Extension!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["storage", "activeTab", "scripting"],
+  
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://della.com.ua/search/*"],
+      "js": ["content_script.js"]
+    },
+    {
+      "matches": ["https://della.com.ua/search/selected/*"],
+      "js": ["update.js"]
+    },
+    {
+      "matches": ["https://della.com.ua/search/*"],
+      "exclude_matches": ["https://della.com.ua/search/selected/"],
+      "js": ["hide.js"]
+    }
+  ]
+}
